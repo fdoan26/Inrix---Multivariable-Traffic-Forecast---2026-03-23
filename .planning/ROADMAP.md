@@ -31,12 +31,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. INRIX incidents (crashes, construction, congestion alerts) are collected and stored separately from speed readings
   4. Open-Meteo 7-day hourly weather forecasts (temperature, precipitation, visibility/fog) are fetched daily and stored
   5. SFUSD school calendar and local event calendar (Giants/Warriors games, major concerts) are ingested with date-level flags
-**Plans:** 3/3 plans complete
+**Plans:** 4 plans (3 complete + 1 gap closure)
 
 Plans:
-- [ ] 01-01-PLAN.md -- Project scaffold, DB schema, core services (INRIX auth, budget tracker, retry, Zod schemas)
-- [ ] 01-02-PLAN.md -- INRIX speed collector, incident collector, and Open-Meteo weather collector
-- [ ] 01-03-PLAN.md -- School calendar and event seed scripts, worker process with cron scheduling
+- [x] 01-01-PLAN.md -- Project scaffold, DB schema, core services (INRIX auth, budget tracker, retry, Zod schemas)
+- [x] 01-02-PLAN.md -- INRIX speed collector, incident collector, and Open-Meteo weather collector
+- [x] 01-03-PLAN.md -- School calendar and event seed scripts, worker process with cron scheduling
+- [ ] 01-04-PLAN.md -- Gap closure: fix TypeScript strict-mode errors in collector test files
 
 ### Phase 2: Forecasting Model
 **Goal**: The system generates week-ahead congestion forecasts with confidence intervals for every major SF corridor, refreshed on a scheduled basis
@@ -119,7 +120,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Pipeline | 3/3 | Complete   | 2026-03-19 |
+| 1. Data Pipeline | 3/4 | Gap closure pending | - |
 | 2. Forecasting Model | 0/3 | Not started | - |
 | 3. API Layer | 0/1 | Not started | - |
 | 4. Map and Live View | 0/2 | Not started | - |
