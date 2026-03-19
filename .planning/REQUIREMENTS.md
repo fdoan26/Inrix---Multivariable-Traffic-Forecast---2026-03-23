@@ -14,8 +14,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DATA-03**: Collected readings stored in TimescaleDB hypertable with segment ID, timestamp, speed, free-flow speed, historical average, and congestion score
 - [x] **DATA-04**: INRIX incidents (crashes, construction, congestion alerts) collected and stored separately
 - [x] **DATA-05**: Open-Meteo 7-day hourly weather forecast fetched daily and stored (temperature, precipitation, visibility/fog)
-- [ ] **DATA-06**: SFUSD school calendar ingested (school day vs. break vs. holiday flags by date)
-- [ ] **DATA-07**: Local event calendar ingested -- Giants/Warriors games, major concerts, Outside Lands flagged as high-congestion days
+- [x] **DATA-06**: SFUSD school calendar ingested (school day vs. break vs. holiday flags by date)
+- [x] **DATA-07**: Local event calendar ingested -- Giants/Warriors games, major concerts, Outside Lands flagged as high-congestion days
 
 ### Forecasting Model
 
@@ -93,8 +93,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DATA-03 | Phase 1 | Complete |
 | DATA-04 | Phase 1 | Complete |
 | DATA-05 | Phase 1 | Complete |
-| DATA-06 | Phase 1 | Pending |
-| DATA-07 | Phase 1 | Pending |
+| DATA-06 | Phase 1 | Complete |
+| DATA-07 | Phase 1 | Complete |
 | FORE-01 | Phase 2 | Pending |
 | FORE-02 | Phase 2 | Pending |
 | FORE-03 | Phase 2 | Pending |
