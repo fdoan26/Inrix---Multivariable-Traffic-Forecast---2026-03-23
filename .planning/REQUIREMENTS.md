@@ -1,7 +1,7 @@
 # Requirements: SF Traffic Forecaster
 
 **Defined:** 2026-03-19
-**Core Value:** Give SF drivers a planning-horizon departure tool with confidence intervals — something Google/Apple cannot offer because they only react to real-time conditions.
+**Core Value:** Give SF drivers a planning-horizon departure tool with confidence intervals -- something Google/Apple cannot offer because they only react to real-time conditions.
 
 ## v1 Requirements
 
@@ -15,25 +15,25 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **DATA-04**: INRIX incidents (crashes, construction, congestion alerts) collected and stored separately
 - [ ] **DATA-05**: Open-Meteo 7-day hourly weather forecast fetched daily and stored (temperature, precipitation, visibility/fog)
 - [ ] **DATA-06**: SFUSD school calendar ingested (school day vs. break vs. holiday flags by date)
-- [ ] **DATA-07**: Local event calendar ingested — Giants/Warriors games, major concerts, Outside Lands flagged as high-congestion days
+- [ ] **DATA-07**: Local event calendar ingested -- Giants/Warriors games, major concerts, Outside Lands flagged as high-congestion days
 
 ### Forecasting Model
 
-- [ ] **FORE-01**: Baseline forecast derived from historical average speed for a given corridor × day-of-week × hour-of-day
-- [ ] **FORE-02**: Weather modifier applied to baseline — rain and fog reduce predicted speed on SF surface streets
-- [ ] **FORE-03**: Event modifier applied — flagged event days shift predicted speeds on affected corridors
-- [ ] **FORE-04**: School calendar modifier applied — SFUSD school days vs. breaks shift morning rush predictions
+- [ ] **FORE-01**: Baseline forecast derived from historical average speed for a given corridor x day-of-week x hour-of-day
+- [ ] **FORE-02**: Weather modifier applied to baseline -- rain and fog reduce predicted speed on SF surface streets
+- [ ] **FORE-03**: Event modifier applied -- flagged event days shift predicted speeds on affected corridors
+- [ ] **FORE-04**: School calendar modifier applied -- SFUSD school days vs. breaks shift morning rush predictions
 - [ ] **FORE-05**: Week-ahead forecast generated for each major SF corridor (101, 280, Bay Bridge approach, Van Ness, 19th Ave, Market St)
-- [ ] **FORE-06**: Confidence intervals computed for each prediction — displayed as range + most-likely value (e.g., "32–44 min, most likely 36")
-- [ ] **FORE-07**: Short-term (0–2hr) forecast uses INRIX Duration parameter (built-in)
+- [ ] **FORE-06**: Confidence intervals computed for each prediction -- displayed as range + most-likely value (e.g., "32-44 min, most likely 36")
+- [ ] **FORE-07**: Short-term (0-2hr) forecast uses INRIX Duration parameter (built-in)
 - [ ] **FORE-08**: Forecast refreshed on a scheduled basis (every 6 hours minimum)
 
 ### Map & Visualization
 
 - [ ] **MAP-01**: Interactive Mapbox GL JS map centered on SF showing major corridors
-- [ ] **MAP-02**: Live segment speed overlay — color-coded by congestion level (green/yellow/red)
-- [ ] **MAP-03**: INRIX incidents layer — crashes, construction, congestion alerts displayed on map
-- [ ] **MAP-04**: Week-ahead corridor heatmap — 7-day × time-slot grid per corridor showing predicted congestion
+- [ ] **MAP-02**: Live segment speed overlay -- color-coded by congestion level (green/yellow/red)
+- [ ] **MAP-03**: INRIX incidents layer -- crashes, construction, congestion alerts displayed on map
+- [ ] **MAP-04**: Week-ahead corridor heatmap -- 7-day x time-slot grid per corridor showing predicted congestion
 - [ ] **MAP-05**: Confidence interval display alongside predicted travel times
 
 ### Departure Planner
@@ -103,25 +103,25 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORE-06 | Phase 2 | Pending |
 | FORE-07 | Phase 2 | Pending |
 | FORE-08 | Phase 2 | Pending |
-| MAP-01 | Phase 3 | Pending |
-| MAP-02 | Phase 3 | Pending |
-| MAP-03 | Phase 3 | Pending |
-| MAP-04 | Phase 4 | Pending |
-| MAP-05 | Phase 4 | Pending |
+| API-01 | Phase 3 | Pending |
+| API-02 | Phase 3 | Pending |
+| API-03 | Phase 3 | Pending |
+| MAP-01 | Phase 4 | Pending |
+| MAP-02 | Phase 4 | Pending |
+| MAP-03 | Phase 4 | Pending |
+| MAP-04 | Phase 5 | Pending |
+| MAP-05 | Phase 5 | Pending |
 | PLAN-01 | Phase 5 | Pending |
 | PLAN-02 | Phase 5 | Pending |
 | PLAN-03 | Phase 5 | Pending |
 | VAL-01 | Phase 6 | Pending |
 | VAL-02 | Phase 6 | Pending |
-| API-01 | Phase 2 | Pending |
-| API-02 | Phase 3 | Pending |
-| API-03 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 27 total
 - Mapped to phases: 27
-- Unmapped: 0 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-19*
-*Last updated: 2026-03-19 after initial definition*
+*Last updated: 2026-03-19 after roadmap creation*
