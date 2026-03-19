@@ -9,7 +9,9 @@
     "test:watch": "vitest",
     "migrate": "node-pg-migrate",
     "seed:calendar": "tsx src/seed/school-calendar.ts",
-    "seed:events": "tsx src/seed/events.ts"
+    "seed:events": "tsx src/seed/events.ts",
+    "worker": "tsx src/worker.ts",
+    "worker:build": "tsc && node dist/worker.js"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
+    "@types/node-cron": "^3.0.11",
     "@types/pg": "^8.18.0",
     "node-pg-migrate": "^8.0.4",
     "tsx": "^4.21.0",
