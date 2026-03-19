@@ -12,7 +12,13 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ System collects SF segment speeds from INRIX bounding-box endpoint on schedule — Phase 1
+- ✓ INRIX call budget enforced (hard stop at 1,600/week) — Phase 1
+- ✓ Segment speeds stored in TimescaleDB hypertable with all required fields — Phase 1
+- ✓ INRIX incidents collected and stored separately — Phase 1
+- ✓ Open-Meteo 7-day weather forecasts fetched daily and stored — Phase 1
+- ✓ SFUSD school calendar ingested with date-level flags — Phase 1
+- ✓ Local event calendar ingested (Giants/Warriors/concerts) — Phase 1
 
 ### Active
 
@@ -65,4 +71,4 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 | Manual Google Maps benchmarking | ToS risk + fragility of scraping outweighs comparison value in MVP | — Pending |
 
 ---
-*Last updated: 2026-03-19 after initialization*
+*Last updated: 2026-03-19 after Phase 1: Data Pipeline complete*
