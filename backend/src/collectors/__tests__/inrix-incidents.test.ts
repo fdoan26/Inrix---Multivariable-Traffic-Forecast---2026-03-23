@@ -24,7 +24,7 @@ import { checkBudget, recordCall, updateCallStatus } from '../../services/budget
 import { insertIncidents } from '../../db/queries/incidents.js';
 import { logJobStart, logJobEnd } from '../../db/queries/budget.js';
 
-const mockedAxios = vi.mocked(axios);
+const mockedAxiosGet = vi.mocked(axios.get);
 const mockedCheckBudget = vi.mocked(checkBudget);
 const mockedRecordCall = vi.mocked(recordCall);
 const mockedUpdateCallStatus = vi.mocked(updateCallStatus);
@@ -83,11 +83,11 @@ describe('collectIncidents', () => {
 
   it('fetches from INRIX incidents URL with correct params', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_INCIDENT_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_INCIDENT_RESPONSE });
 
     await collectIncidents(mockAuth);
 
-    expect(mockedAxios.get).toHaveBeenCalledWith(
+    expect(mockedAxiosGet).toHaveBeenCalledWith(
       'https://incident-api.inrix.com/v1/incidents',
       expect.objectContaining({
         params: expect.objectContaining({
@@ -105,12 +105,12 @@ describe('collectIncidents', () => {
     const result = await collectIncidents(mockAuth);
 
     expect(result).toEqual({ skipped: true, reason: 'budget_exhausted' });
-    expect(mockedAxios.get).not.toHaveBeenCalled();
+    expect(mockedAxiosGet).not.toHaveBeenCalled();
   });
 
   it('validates response and inserts all incidents', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_INCIDENT_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_INCIDENT_RESPONSE });
 
     const result = await collectIncidents(mockAuth);
 
@@ -132,7 +132,7 @@ describe('collectIncidents', () => {
       callOrder.push('recordCall');
       return 10;
     });
-    mockedAxios.get.mockImplementation(async () => {
+    mockedAxiosGet.mockImplementation(async () => {
       callOrder.push('axios.get');
       return { data: VALID_INCIDENT_RESPONSE };
     });
@@ -153,7 +153,7 @@ describe('collectIncidents', () => {
       return fn();
     });
 
-    mockedAxios.get.mockRejectedValue(axiosError);
+    mockedAxiosGet.mockRejectedValue(axiosError);
 
     await expect(collectIncidents(mockAuth)).rejects.toThrow();
     expect(mockAuth.invalidate).toHaveBeenCalled();
@@ -161,7 +161,7 @@ describe('collectIncidents', () => {
 
   it('logs job start and end on success', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_INCIDENT_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_INCIDENT_RESPONSE });
 
     await collectIncidents(mockAuth);
 

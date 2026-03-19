@@ -24,7 +24,7 @@ import { checkBudget, recordCall, updateCallStatus } from '../../services/budget
 import { insertSpeedReadings } from '../../db/queries/speed-readings.js';
 import { logJobStart, logJobEnd } from '../../db/queries/budget.js';
 
-const mockedAxios = vi.mocked(axios);
+const mockedAxiosGet = vi.mocked(axios.get);
 const mockedCheckBudget = vi.mocked(checkBudget);
 const mockedRecordCall = vi.mocked(recordCall);
 const mockedUpdateCallStatus = vi.mocked(updateCallStatus);
@@ -83,11 +83,11 @@ describe('collectSpeeds', () => {
 
   it('fetches from INRIX speed URL with correct box param when budget allowed', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
 
     await collectSpeeds(mockAuth);
 
-    expect(mockedAxios.get).toHaveBeenCalledWith(
+    expect(mockedAxiosGet).toHaveBeenCalledWith(
       'https://segment-api.inrix.com/v1/segments/speed',
       expect.objectContaining({
         params: expect.objectContaining({
@@ -109,12 +109,12 @@ describe('collectSpeeds', () => {
     const result = await collectSpeeds(mockAuth);
 
     expect(result).toEqual({ skipped: true, reason: 'budget_exhausted' });
-    expect(mockedAxios.get).not.toHaveBeenCalled();
+    expect(mockedAxiosGet).not.toHaveBeenCalled();
   });
 
   it('validates response with SpeedResponseSchema and inserts correct segment count', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
 
     const result = await collectSpeeds(mockAuth);
 
@@ -136,7 +136,7 @@ describe('collectSpeeds', () => {
       callOrder.push('recordCall');
       return 10;
     });
-    mockedAxios.get.mockImplementation(async () => {
+    mockedAxiosGet.mockImplementation(async () => {
       callOrder.push('axios.get');
       return { data: VALID_SPEED_RESPONSE };
     });
@@ -158,7 +158,7 @@ describe('collectSpeeds', () => {
       return fn();
     });
 
-    mockedAxios.get.mockRejectedValue(axiosError);
+    mockedAxiosGet.mockRejectedValue(axiosError);
 
     await expect(collectSpeeds(mockAuth)).rejects.toThrow();
     expect(mockAuth.invalidate).toHaveBeenCalled();
@@ -166,7 +166,7 @@ describe('collectSpeeds', () => {
 
   it('logs job start and end on success', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
 
     await collectSpeeds(mockAuth);
 
@@ -176,7 +176,7 @@ describe('collectSpeeds', () => {
 
   it('updates call status to success with response time', async () => {
     mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
-    mockedAxios.get.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
 
     await collectSpeeds(mockAuth);
 

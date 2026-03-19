@@ -22,7 +22,7 @@ import { recordCall, updateCallStatus } from '../../services/budget-tracker.js';
 import { upsertWeatherForecasts } from '../../db/queries/weather.js';
 import { logJobStart, logJobEnd } from '../../db/queries/budget.js';
 
-const mockedAxios = vi.mocked(axios);
+const mockedAxiosGet = vi.mocked(axios.get);
 const mockedRecordCall = vi.mocked(recordCall);
 const mockedUpsertWeatherForecasts = vi.mocked(upsertWeatherForecasts);
 const mockedLogJobStart = vi.mocked(logJobStart);
@@ -50,11 +50,11 @@ describe('collectWeather', () => {
   });
 
   it('fetches from Open-Meteo with correct params', async () => {
-    mockedAxios.get.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
 
     await collectWeather();
 
-    expect(mockedAxios.get).toHaveBeenCalledWith(
+    expect(mockedAxiosGet).toHaveBeenCalledWith(
       'https://api.open-meteo.com/v1/forecast',
       expect.objectContaining({
         params: expect.objectContaining({
@@ -71,13 +71,13 @@ describe('collectWeather', () => {
 
   it('validates response with WeatherResponseSchema', async () => {
     // Invalid response (missing required fields) should throw
-    mockedAxios.get.mockResolvedValue({ data: { hourly: { time: [] } } });
+    mockedAxiosGet.mockResolvedValue({ data: { hourly: { time: [] } } });
 
     await expect(collectWeather()).rejects.toThrow();
   });
 
   it('transforms hourly arrays into WeatherRow objects with correct field mapping', async () => {
-    mockedAxios.get.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
 
     await collectWeather();
 
@@ -106,7 +106,7 @@ describe('collectWeather', () => {
   });
 
   it('calls upsertWeatherForecasts with correct row count', async () => {
-    mockedAxios.get.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
 
     const result = await collectWeather();
 
@@ -116,7 +116,7 @@ describe('collectWeather', () => {
   });
 
   it('maps weather_code 45 (fog) correctly', async () => {
-    mockedAxios.get.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
 
     await collectWeather();
 
@@ -127,7 +127,7 @@ describe('collectWeather', () => {
   });
 
   it('logs job start and end on success', async () => {
-    mockedAxios.get.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
+    mockedAxiosGet.mockResolvedValue({ data: SAMPLE_WEATHER_RESPONSE });
 
     await collectWeather();
 
