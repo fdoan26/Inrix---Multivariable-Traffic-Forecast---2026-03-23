@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Data Pipeline
 
-- [ ] **DATA-01**: System collects SF segment speeds from INRIX bounding-box endpoint on a scheduled basis
+- [x] **DATA-01**: System collects SF segment speeds from INRIX bounding-box endpoint on a scheduled basis
 - [x] **DATA-02**: INRIX call budget stays within 2000 calls/week (budget tracker enforced before each job run)
 - [x] **DATA-03**: Collected readings stored in TimescaleDB hypertable with segment ID, timestamp, speed, free-flow speed, historical average, and congestion score
-- [ ] **DATA-04**: INRIX incidents (crashes, construction, congestion alerts) collected and stored separately
-- [ ] **DATA-05**: Open-Meteo 7-day hourly weather forecast fetched daily and stored (temperature, precipitation, visibility/fog)
+- [x] **DATA-04**: INRIX incidents (crashes, construction, congestion alerts) collected and stored separately
+- [x] **DATA-05**: Open-Meteo 7-day hourly weather forecast fetched daily and stored (temperature, precipitation, visibility/fog)
 - [ ] **DATA-06**: SFUSD school calendar ingested (school day vs. break vs. holiday flags by date)
 - [ ] **DATA-07**: Local event calendar ingested -- Giants/Warriors games, major concerts, Outside Lands flagged as high-congestion days
 
@@ -88,11 +88,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
 | DATA-02 | Phase 1 | Complete |
 | DATA-03 | Phase 1 | Complete |
-| DATA-04 | Phase 1 | Pending |
-| DATA-05 | Phase 1 | Pending |
+| DATA-04 | Phase 1 | Complete |
+| DATA-05 | Phase 1 | Complete |
 | DATA-06 | Phase 1 | Pending |
 | DATA-07 | Phase 1 | Pending |
 | FORE-01 | Phase 2 | Pending |

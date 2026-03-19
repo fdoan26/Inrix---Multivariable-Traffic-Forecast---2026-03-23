@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-19T20:56:05Z"
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-19T21:02:32Z"
 progress:
   total_phases: 6
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -24,21 +24,21 @@ See: .planning/PROJECT.md (updated 2026-03-19)
 ## Current Position
 
 Phase: 1 (Data Pipeline) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 1
-- Average duration: 6 min
-- Total execution time: 0.1 hours
+- Total plans completed: 2
+- Average duration: 4.5 min
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-data-pipeline | 1 | 6 min | 6 min |
+| 01-data-pipeline | 2 | 9 min | 4.5 min |
 
 **Recent Trend:**
 
@@ -61,6 +61,9 @@ Recent decisions affecting current work:
 - Plan 01-01: Used NodeNext module resolution for native ESM compatibility with TypeScript
 - Plan 01-01: Budget tracker inserts pending status BEFORE API call to prevent counter drift on timeouts
 - Plan 01-01: Retry tests use real timers with short delays to avoid vitest unhandled rejection issues
+- Plan 01-02: Collector lifecycle: logJobStart -> checkBudget -> recordCall -> withRetry(fetch) -> Zod parse -> batch insert -> updateCallStatus -> logJobEnd
+- Plan 01-02: Weather upsert uses ON CONFLICT (forecast_hour) DO UPDATE to prevent duplicate rows on re-fetch
+- Plan 01-02: Auth token invalidation on 401 happens inside retry loop so fresh token is acquired on next attempt
 
 ### Pending Todos
 
@@ -75,5 +78,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-19
-Stopped at: Completed 01-01-PLAN.md
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None
