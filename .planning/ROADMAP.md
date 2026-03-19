@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. INRIX incidents (crashes, construction, congestion alerts) are collected and stored separately from speed readings
   4. Open-Meteo 7-day hourly weather forecasts (temperature, precipitation, visibility/fog) are fetched daily and stored
   5. SFUSD school calendar and local event calendar (Giants/Warriors games, major concerts) are ingested with date-level flags
-**Plans:** 4 plans (3 complete + 1 gap closure)
+**Plans:** 4/4 plans complete
 
 Plans:
 - [x] 01-01-PLAN.md -- Project scaffold, DB schema, core services (INRIX auth, budget tracker, retry, Zod schemas)
@@ -120,7 +120,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Pipeline | 4/4 | Complete | 2026-03-19 |
+| 1. Data Pipeline | 4/4 | Complete    | 2026-03-19 |
 | 2. Forecasting Model | 0/3 | Not started | - |
 | 3. API Layer | 0/1 | Not started | - |
 | 4. Map and Live View | 0/2 | Not started | - |
