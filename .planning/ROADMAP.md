@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Data Pipeline** - INRIX, weather, events, and school calendar data flowing into TimescaleDB within rate limits (completed 2026-03-19)
 - [ ] **Phase 2: Forecasting Model** - Week-ahead corridor forecasts with confidence intervals generated from collected data
 - [ ] **Phase 3: API Layer** - REST endpoints serving live speeds, forecasts, and incidents
-- [ ] **Phase 4: Map and Live View** - Interactive Mapbox map with live traffic overlay and incidents
+- [x] **Phase 4: Map and Live View** - Interactive Mapbox map with live traffic overlay and incidents (completed 2026-03-20)
 - [ ] **Phase 5: Departure Planner and Week-Ahead View** - Best departure time recommender and corridor heatmap visualization
 - [ ] **Phase 6: Validation and Accuracy Tracking** - Actual vs predicted logging with accuracy metrics dashboard
 
@@ -80,7 +80,7 @@ Plans:
   2. Live segment speeds are color-coded on the map by congestion level (green/yellow/red) and update automatically
   3. INRIX incidents (crashes, construction, congestion alerts) are displayed as markers on the map with detail popups
   4. Map is mobile-responsive -- usable on phone screens without horizontal scrolling or broken layout
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 04-01-PLAN.md -- Frontend scaffold (React/Vite/Tailwind v4), Mapbox map with corridor lines, speed overlay, responsive panel (MAP-01, MAP-02)
@@ -124,6 +124,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 1. Data Pipeline | 4/4 | Complete    | 2026-03-19 |
 | 2. Forecasting Model | 1/3 | In Progress|  |
 | 3. API Layer | 0/2 | Not started | - |
-| 4. Map and Live View | 1/2 | In Progress|  |
+| 4. Map and Live View | 2/2 | Complete   | 2026-03-20 |
 | 5. Departure Planner and Week-Ahead View | 0/2 | Not started | - |
 | 6. Validation and Accuracy Tracking | 0/1 | Not started | - |

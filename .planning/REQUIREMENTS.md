@@ -32,7 +32,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **MAP-01**: Interactive Mapbox GL JS map centered on SF showing major corridors
 - [x] **MAP-02**: Live segment speed overlay -- color-coded by congestion level (green/yellow/red)
-- [ ] **MAP-03**: INRIX incidents layer -- crashes, construction, congestion alerts displayed on map
+- [x] **MAP-03**: INRIX incidents layer -- crashes, construction, congestion alerts displayed on map
 - [ ] **MAP-04**: Week-ahead corridor heatmap -- 7-day x time-slot grid per corridor showing predicted congestion
 - [ ] **MAP-05**: Confidence interval display alongside predicted travel times
 
@@ -108,7 +108,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | API-03 | Phase 3 | Complete |
 | MAP-01 | Phase 4 | Complete |
 | MAP-02 | Phase 4 | Complete |
-| MAP-03 | Phase 4 | Pending |
+| MAP-03 | Phase 4 | Complete |
 | MAP-04 | Phase 5 | Pending |
 | MAP-05 | Phase 5 | Pending |
 | PLAN-01 | Phase 5 | Pending |
