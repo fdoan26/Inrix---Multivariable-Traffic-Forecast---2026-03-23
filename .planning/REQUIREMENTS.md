@@ -25,7 +25,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FORE-04**: School calendar modifier applied -- SFUSD school days vs. breaks shift morning rush predictions
 - [ ] **FORE-05**: Week-ahead forecast generated for each major SF corridor (101, 280, Bay Bridge approach, Van Ness, 19th Ave, Market St)
 - [x] **FORE-06**: Confidence intervals computed for each prediction -- displayed as range + most-likely value (e.g., "32-44 min, most likely 36")
-- [ ] **FORE-07**: Short-term (0-2hr) forecast uses INRIX Duration parameter (built-in)
+- [x] **FORE-07**: Short-term (0-2hr) forecast uses INRIX Duration parameter (built-in)
 - [ ] **FORE-08**: Forecast refreshed on a scheduled basis (every 6 hours minimum)
 
 ### Map & Visualization
@@ -101,7 +101,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORE-04 | Phase 2 | Complete |
 | FORE-05 | Phase 2 | Pending |
 | FORE-06 | Phase 2 | Complete |
-| FORE-07 | Phase 2 | Pending |
+| FORE-07 | Phase 2 | Complete |
 | FORE-08 | Phase 2 | Pending |
 | API-01 | Phase 3 | Pending |
 | API-02 | Phase 3 | Pending |
