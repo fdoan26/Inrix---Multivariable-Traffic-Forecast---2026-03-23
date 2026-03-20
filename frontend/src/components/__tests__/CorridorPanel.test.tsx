@@ -76,6 +76,14 @@ vi.mock('@/components/DepartureResults', () => ({
   DepartureResults: () => <div data-testid="results-stub" />,
 }));
 
+vi.mock('@/components/AccuracyDashboard', () => ({
+  AccuracyDashboard: () => <div data-testid="accuracy-dashboard-stub" />,
+}));
+
+vi.mock('@/hooks/useAccuracyMetrics', () => ({
+  useAccuracyMetrics: () => ({ data: undefined, isPending: false, isError: false }),
+}));
+
 function renderPanel() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -183,5 +191,16 @@ describe('CorridorPanel', () => {
     renderPanel();
     expect(screen.getByTestId('corridor-row-us-101')).toBeInTheDocument();
     expect(screen.getByTestId('tab-live').className).toContain('border-amber-400');
+  });
+
+  it('renders Accuracy tab button', () => {
+    renderPanel();
+    expect(screen.getByTestId('tab-accuracy')).toBeInTheDocument();
+  });
+
+  it('clicking Accuracy tab shows AccuracyDashboard', () => {
+    renderPanel();
+    fireEvent.click(screen.getByTestId('tab-accuracy'));
+    expect(screen.getByTestId('accuracy-dashboard-stub')).toBeInTheDocument();
   });
 });

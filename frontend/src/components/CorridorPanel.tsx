@@ -9,9 +9,10 @@ import {
 } from '@/data/corridors';
 import { WeekHeatmap } from '@/components/WeekHeatmap';
 import { DeparturePlannerForm } from '@/components/DeparturePlannerForm';
+import { AccuracyDashboard } from '@/components/AccuracyDashboard';
 import type { CongestionLevel } from '@/types/api';
 
-type PanelTab = 'live' | 'plan';
+type PanelTab = 'live' | 'plan' | 'accuracy';
 
 function congestionLabel(level: CongestionLevel): string {
   switch (level) {
@@ -71,6 +72,11 @@ export function CorridorPanel() {
           className={`px-4 py-2 text-sm ${activeTab === 'plan' ? 'border-b-2 border-amber-400 text-white' : 'text-gray-400'}`}
           data-testid="tab-plan"
         >Plan</button>
+        <button
+          onClick={() => setActiveTab('accuracy')}
+          className={`px-4 py-2 text-sm ${activeTab === 'accuracy' ? 'border-b-2 border-amber-400 text-white' : 'text-gray-400'}`}
+          data-testid="tab-accuracy"
+        >Accuracy</button>
       </div>
 
       {activeTab === 'live' ? (
@@ -141,8 +147,10 @@ export function CorridorPanel() {
             </label>
           </div>
         </>
-      ) : (
+      ) : activeTab === 'plan' ? (
         <DeparturePlannerForm />
+      ) : (
+        <AccuracyDashboard />
       )}
     </div>
   );

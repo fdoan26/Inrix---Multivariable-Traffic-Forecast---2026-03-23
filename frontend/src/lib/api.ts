@@ -1,4 +1,4 @@
-import type { CorridorCurrentResponse, DepartureWindowsResponse, ForecastResponse, IncidentsResponse } from '@/types/api';
+import type { AccuracyResponse, CorridorCurrentResponse, DepartureWindowsResponse, ForecastResponse, IncidentsResponse } from '@/types/api';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
@@ -28,5 +28,12 @@ export async function fetchDepartureWindows(
   const params = new URLSearchParams({ arrival, window_count: String(windowCount) });
   const res = await fetch(`${API_URL}/api/corridors/${corridorId}/departure-windows?${params}`);
   if (!res.ok) throw new Error(`Departure windows fetch failed: ${res.status}`);
+  return res.json();
+}
+
+export async function fetchAccuracyMetrics(corridorId?: string): Promise<AccuracyResponse> {
+  const params = corridorId ? `?corridor_id=${corridorId}` : '';
+  const res = await fetch(`${API_URL}/api/accuracy${params}`);
+  if (!res.ok) throw new Error(`Accuracy fetch failed: ${res.status}`);
   return res.json();
 }

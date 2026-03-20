@@ -75,3 +75,26 @@ export interface DepartureWindowsResponse {
   arrival_target: string;
   windows: DepartureWindow[];
 }
+
+export interface DayOfWeekAccuracy {
+  day: number;
+  day_name: string;
+  mae_minutes: number;
+  mape_pct: number;
+  count: number;
+}
+
+export interface CorridorAccuracy {
+  corridor_id: string;
+  display_name: string;
+  sample_count: number;
+  mae_minutes: number | null;
+  mape_pct: number | null;
+  trend: 'improving' | 'degrading' | 'stable';
+  by_day_of_week: DayOfWeekAccuracy[];
+}
+
+export interface AccuracyResponse {
+  generated_at: string;
+  corridors: CorridorAccuracy[];
+}
