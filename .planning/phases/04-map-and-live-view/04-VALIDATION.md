@@ -41,10 +41,10 @@ created: 2026-03-19
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
 | 4-01-01 | 04-01 | 1 | MAP-01 | unit | `cd frontend && npx vitest run src/data/__tests__/corridors.test.ts --reporter=verbose` | no (W0) | ⬜ pending |
-| 4-01-02 | 04-01 | 1 | MAP-01, MAP-02 | unit | `cd frontend && npx vitest run src/components/__tests__/CorridorPanel.test.tsx --reporter=verbose` | no (W0) | ⬜ pending |
-| 4-02-01 | 04-02 | 2 | MAP-02 | unit | `cd frontend && npx vitest run src/hooks/__tests__/useCorridorSpeeds.test.ts --reporter=verbose` | no (W0) | ⬜ pending |
-| 4-02-02 | 04-02 | 2 | MAP-03 | unit | `cd backend && npx vitest run src/api/__tests__/incidents.test.ts --reporter=verbose` | no (W0) | ⬜ pending |
-| 4-02-03 | 04-02 | 2 | MAP-03 | unit | `cd frontend && npx vitest run src/components/__tests__/IncidentPopup.test.tsx --reporter=verbose` | no (W0) | ⬜ pending |
+| 4-01-02 | 04-01 | 1 | MAP-02 | unit | `cd frontend && npx vitest run src/hooks/__tests__/useCorridorSpeeds.test.ts --reporter=verbose` | no (W0) | ⬜ pending |
+| 4-01-03 | 04-01 | 1 | MAP-01, MAP-02 | unit | `cd frontend && npx vitest run src/components/__tests__/CorridorPanel.test.tsx --reporter=verbose` | no (W0) | ⬜ pending |
+| 4-02-01 | 04-02 | 2 | MAP-03 | unit | `cd backend && npx vitest run src/api/__tests__/incidents.test.ts --reporter=verbose` | no (W0) | ⬜ pending |
+| 4-02-02 | 04-02 | 2 | MAP-03 | unit | `cd frontend && npx vitest run src/components/__tests__/IncidentPopup.test.tsx --reporter=verbose` | no (W0) | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -55,8 +55,8 @@ created: 2026-03-19
 - [ ] `frontend/vitest.config.ts` — Vitest config with jsdom environment and path aliases
 - [ ] `frontend/src/test/setup.ts` — Test setup file importing `@testing-library/jest-dom`
 - [ ] `frontend/src/data/__tests__/corridors.test.ts` — tests for MAP-01 GeoJSON validation (6 features, valid LineStrings, correct IDs)
+- [ ] `frontend/src/hooks/__tests__/useCorridorSpeeds.test.ts` — tests for MAP-02 hook behavior (6 queries, CORRIDOR_IDS keys, refetchInterval)
 - [ ] `frontend/src/components/__tests__/CorridorPanel.test.tsx` — tests for MAP-01 corridor list rendering, MAP-02 congestion badge colors
-- [ ] `frontend/src/hooks/__tests__/useCorridorSpeeds.test.ts` — tests for MAP-02 speed→color mapping
 - [ ] `frontend/src/components/__tests__/IncidentPopup.test.tsx` — tests for MAP-03 popup content
 - [ ] `backend/src/api/__tests__/incidents.test.ts` — tests for new incidents endpoint
 - [ ] `backend/src/api/incidents.ts` — new backend incidents endpoint

@@ -34,12 +34,13 @@ Phase 4 is the first frontend phase. It delivers the React/Vite/TypeScript app s
 
 ### Corridor Visualization (MAP-01, MAP-02)
 - 6 corridors defined as GeoJSON LineString features in `src/data/corridors.ts` with hard-coded coordinates:
-  - `us-101-n` — US-101 Northbound (SF to SFO direction)
-  - `us-101-s` — US-101 Southbound
-  - `i-280-n` — I-280 Northbound
-  - `i-280-s` — I-280 Southbound
-  - `bay-bridge-w` — Bay Bridge approach (I-80 Westbound, Oakland→SF)
-  - `van-ness-n` — Van Ness Ave Northbound
+  - `us-101` — US-101 (combined, not directional — matches DB canonical ID)
+  - `i-280` — I-280 (combined, not directional — matches DB canonical ID)
+  - `bay-bridge` — Bay Bridge Approach (matches DB canonical ID)
+  - `van-ness` — Van Ness Ave (matches DB canonical ID)
+  - `19th-ave` — 19th Ave (matches DB canonical ID)
+  - `market-st` — Market St (matches DB canonical ID)
+- Corridor IDs use the database canonical form from `backend/src/db/migrations/004_create-corridors-table.sql` (NOT directional suffixes like `-n`, `-s`, `-w`)
 - Corridor color from `congestion_level` API field: `free_flow=#10b981` (green), `moderate=#f59e0b` (amber), `heavy=#ef4444` (red), `unknown=#6b7280` (gray)
 - Line width: 6px, line-cap: round, line-join: round
 - Clicking a corridor line: selects it, highlights it (opacity 1.0 vs 0.6 for unselected), shows speed details in panel
@@ -54,11 +55,12 @@ Phase 4 is the first frontend phase. It delivers the React/Vite/TypeScript app s
 
 ### Incident Markers (MAP-03)
 - Fetch from `/api/incidents` — new backend endpoint returning recent incidents from `traffic_incidents` table
-- Mapbox symbol layer with three custom marker icons (SVG encoded as base64 data URIs):
-  - `crash` → red circle with ❗
-  - `construction` → orange cone icon
-  - `congestion` → yellow triangle with ⚠️
-- Click incident marker → popup with: incident type, description, delay_minutes (if available), recorded_at timestamp
+- Use react-map-gl `<Marker>` JSX components with inline SVG icons (NOT Mapbox symbol layer — react-map-gl does not support `map.addImage()` for base64 SVG in declarative mode per RESEARCH.md findings)
+  - `crash` (incident_type 4) → red circle with ! (`fill="#ef4444"`)
+  - `construction` (incident_type 1) → orange triangle (`fill="#f97316"`)
+  - `congestion` (incident_type 3) → yellow diamond (`fill="#eab308"`)
+  - `event` (incident_type 2) → same as congestion (yellow diamond)
+- Click incident marker → `<Popup>` with: incident type, description, delay_minutes (if available), recorded_at timestamp
 - Incidents layer toggleable via checkbox in panel (default: on)
 - Fetch interval: 5 minutes (same as speeds)
 
@@ -104,7 +106,7 @@ No external specs — requirements are fully captured in decisions above.
 ### Reusable Assets
 - `backend/src/api/corridors.ts` — `GET /api/corridors/:corridorId/current` returns `{corridor_id, display_name, congestion_level, avg_travel_time_min, segments[]}` — the frontend fetches this for each of 6 corridors
 - `backend/src/api/forecasts.ts` — `GET /api/corridors/:corridorId/forecast` and departure-windows (Phase 5 will use these)
-- Corridor IDs defined in `backend/src/db/migrations/004_create-corridors-table.sql` and `ml/src/corridors.py`: `us-101-n`, `us-101-s`, `i-280-n`, `i-280-s`, `bay-bridge-w`, `van-ness-n`
+- Corridor IDs defined in `backend/src/db/migrations/004_create-corridors-table.sql`: `us-101`, `i-280`, `bay-bridge`, `van-ness`, `19th-ave`, `market-st`
 - `backend/src/api/index.ts` — CORS already configured with `ALLOWED_ORIGINS` env var; frontend at `http://localhost:5173` is covered by default
 
 ### Established Patterns
@@ -124,7 +126,7 @@ No external specs — requirements are fully captured in decisions above.
 ## Specific Ideas
 
 - Dark Mapbox style (`dark-v11`) was chosen to make the color-coded corridor lines (green/amber/red) stand out visually — this is the core UX payoff of the app
-- The 6 corridor IDs in `ml/src/corridors.py` and migration 004 are the canonical source — GeoJSON coordinates in `frontend/src/data/corridors.ts` must match these exact IDs
+- The 6 corridor IDs in `backend/src/db/migrations/004_create-corridors-table.sql` are the canonical source — GeoJSON coordinates in `frontend/src/data/corridors.ts` must match these exact IDs
 - Phase 3 delivered the API but no frontend — users cannot see anything yet. Phase 4 is the first user-visible output.
 - Mobile usability matters: the target includes SF commuters checking traffic on their phones
 
