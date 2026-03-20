@@ -42,3 +42,36 @@ export const INCIDENT_TYPE_MAP: Record<number, IncidentType> = {
   3: 'congestion',   // Flow
   4: 'crash',        // Incident
 };
+
+export interface ForecastEntry {
+  forecast_for: string;
+  predicted_minutes: number;
+  p10_minutes: number;
+  p50_minutes: number;
+  p90_minutes: number;
+  model_version: string;
+  weather_modifier: number | null;
+  event_modifier: number | null;
+  school_modifier: number | null;
+}
+
+export interface ForecastResponse {
+  corridor_id: string;
+  horizon_hours: number;
+  forecasts: ForecastEntry[];
+}
+
+export interface DepartureWindow {
+  departure_at: string;
+  estimated_travel_min: number;
+  p10_minutes: number;
+  p90_minutes: number;
+  congestion_risk: CongestionLevel;
+  reason: string | null;
+}
+
+export interface DepartureWindowsResponse {
+  corridor_id: string;
+  arrival_target: string;
+  windows: DepartureWindow[];
+}
