@@ -95,11 +95,11 @@ Plans:
   2. Confidence intervals are displayed alongside predicted travel times in the heatmap and forecast views
   3. User can input origin, destination, and desired arrival time to get recommended departure windows across the week
   4. Best departure time is highlighted with explanations like "Slow due to rain forecast" or "Slow due to Giants game" where modifiers apply
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md -- Types, utility functions (congestion, heatmap grid), WeekHeatmap component, CorridorPanel tab navigation (MAP-04, MAP-05)
+- [ ] 05-02-PLAN.md -- DeparturePlannerForm, DepartureResults, useDepartureWindows hook, Plan tab wiring (PLAN-01, PLAN-02, PLAN-03)
 
 ### Phase 6: Validation and Accuracy Tracking
 **Goal**: Users and the developer can see how accurate forecasts are, and the system logs outcomes to enable model improvement
