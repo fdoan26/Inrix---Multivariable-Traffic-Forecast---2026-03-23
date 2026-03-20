@@ -109,10 +109,10 @@ Plans:
   1. Actual travel times are logged against predicted values for each forecast window automatically
   2. Prediction accuracy metrics (MAE, MAPE per corridor) are viewable in a dashboard or summary page
   3. Accuracy data covers enough history to show whether the model is improving or degrading over time
-**Plans**: TBD
+**Plans:** 1 plan
 
 Plans:
-- [ ] 06-01: TBD
+- [ ] 06-01-PLAN.md -- DB migration, outcome logger, accuracy API, AccuracyDashboard component (VAL-01, VAL-02)
 
 ## Progress
 
