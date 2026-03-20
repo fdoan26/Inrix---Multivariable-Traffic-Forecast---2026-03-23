@@ -1,19 +1,25 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useState } from 'react';
 import Map, { Source, Layer } from 'react-map-gl/mapbox';
 import type { MapMouseEvent, LineLayerSpecification } from 'mapbox-gl';
 import { useCorridorSpeeds } from '@/hooks/useCorridorSpeeds';
+import { useIncidents } from '@/hooks/useIncidents';
 import { useMapStore } from '@/store/mapStore';
 import {
   CORRIDOR_IDS,
   createCorridorFeatureCollection,
 } from '@/data/corridors';
-import type { CongestionLevel } from '@/types/api';
+import type { CongestionLevel, Incident } from '@/types/api';
+import { IncidentMarker } from '@/components/IncidentMarker';
+import { IncidentPopup } from '@/components/IncidentPopup';
 
 export function MapView() {
   const corridorQueries = useCorridorSpeeds();
+  const { data: incidentsData } = useIncidents();
   const selectedCorridorId = useMapStore((s) => s.selectedCorridorId);
+  const incidentsVisible = useMapStore((s) => s.incidentsVisible);
   const selectCorridor = useMapStore((s) => s.selectCorridor);
   const setLastUpdated = useMapStore((s) => s.setLastUpdated);
+  const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
 
   const corridorGeoJSON = useMemo(() => {
     const corridorData = CORRIDOR_IDS.map((id, index) => {
@@ -64,6 +70,7 @@ export function MapView() {
         selectCorridor(feature.properties.corridorId as string);
       } else {
         selectCorridor(null);
+        setSelectedIncident(null);
       }
     },
     [selectCorridor],
@@ -85,6 +92,20 @@ export function MapView() {
       <Source id="corridors" type="geojson" data={corridorGeoJSON}>
         <Layer {...corridorLineLayer} />
       </Source>
+      {incidentsVisible &&
+        incidentsData?.incidents.map((incident) => (
+          <IncidentMarker
+            key={incident.incident_id}
+            incident={incident}
+            onClick={setSelectedIncident}
+          />
+        ))}
+      {selectedIncident && (
+        <IncidentPopup
+          incident={selectedIncident}
+          onClose={() => setSelectedIncident(null)}
+        />
+      )}
     </Map>
   );
 }
