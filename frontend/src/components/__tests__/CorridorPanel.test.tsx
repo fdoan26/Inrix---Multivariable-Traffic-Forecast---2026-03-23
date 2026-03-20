@@ -62,6 +62,12 @@ vi.mock('@/hooks/useCorridorSpeeds', () => ({
     })),
 }));
 
+vi.mock('@/components/WeekHeatmap', () => ({
+  WeekHeatmap: ({ corridorId }: { corridorId: string }) => (
+    <div data-testid="week-heatmap-stub">{corridorId}</div>
+  ),
+}));
+
 function renderPanel() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -130,5 +136,37 @@ describe('CorridorPanel', () => {
     const toggle = screen.getByTestId('incidents-toggle');
     expect(toggle).toBeInTheDocument();
     expect(toggle).toBeChecked();
+  });
+
+  it('renders Live and Plan tab buttons', () => {
+    renderPanel();
+    expect(screen.getByTestId('tab-live')).toBeInTheDocument();
+    expect(screen.getByTestId('tab-plan')).toBeInTheDocument();
+  });
+
+  it('Live tab is active by default', () => {
+    renderPanel();
+    const liveTab = screen.getByTestId('tab-live');
+    expect(liveTab.className).toContain('border-amber-400');
+  });
+
+  it('clicking Plan tab switches to Plan view', () => {
+    renderPanel();
+    const planTab = screen.getByTestId('tab-plan');
+    fireEvent.click(planTab);
+    expect(screen.getByTestId('plan-tab-content')).toBeInTheDocument();
+  });
+
+  it('shows WeekHeatmap when corridor is selected in Live tab', () => {
+    useMapStore.setState({ selectedCorridorId: 'us-101' });
+    renderPanel();
+    expect(screen.getByTestId('week-heatmap-stub')).toBeInTheDocument();
+    expect(screen.getByTestId('week-heatmap-stub').textContent).toBe('us-101');
+  });
+
+  it('corridor list remains visible in Live tab', () => {
+    renderPanel();
+    expect(screen.getByTestId('corridor-row-us-101')).toBeInTheDocument();
+    expect(screen.getByTestId('tab-live').className).toContain('border-amber-400');
   });
 });
