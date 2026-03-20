@@ -19,12 +19,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Forecasting Model
 
-- [ ] **FORE-01**: Baseline forecast derived from historical average speed for a given corridor x day-of-week x hour-of-day
-- [ ] **FORE-02**: Weather modifier applied to baseline -- rain and fog reduce predicted speed on SF surface streets
-- [ ] **FORE-03**: Event modifier applied -- flagged event days shift predicted speeds on affected corridors
-- [ ] **FORE-04**: School calendar modifier applied -- SFUSD school days vs. breaks shift morning rush predictions
+- [x] **FORE-01**: Baseline forecast derived from historical average speed for a given corridor x day-of-week x hour-of-day
+- [x] **FORE-02**: Weather modifier applied to baseline -- rain and fog reduce predicted speed on SF surface streets
+- [x] **FORE-03**: Event modifier applied -- flagged event days shift predicted speeds on affected corridors
+- [x] **FORE-04**: School calendar modifier applied -- SFUSD school days vs. breaks shift morning rush predictions
 - [ ] **FORE-05**: Week-ahead forecast generated for each major SF corridor (101, 280, Bay Bridge approach, Van Ness, 19th Ave, Market St)
-- [ ] **FORE-06**: Confidence intervals computed for each prediction -- displayed as range + most-likely value (e.g., "32-44 min, most likely 36")
+- [x] **FORE-06**: Confidence intervals computed for each prediction -- displayed as range + most-likely value (e.g., "32-44 min, most likely 36")
 - [ ] **FORE-07**: Short-term (0-2hr) forecast uses INRIX Duration parameter (built-in)
 - [ ] **FORE-08**: Forecast refreshed on a scheduled basis (every 6 hours minimum)
 
@@ -95,12 +95,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DATA-05 | Phase 1 | Complete |
 | DATA-06 | Phase 1 | Complete |
 | DATA-07 | Phase 1 | Complete |
-| FORE-01 | Phase 2 | Pending |
-| FORE-02 | Phase 2 | Pending |
-| FORE-03 | Phase 2 | Pending |
-| FORE-04 | Phase 2 | Pending |
+| FORE-01 | Phase 2 | Complete |
+| FORE-02 | Phase 2 | Complete |
+| FORE-03 | Phase 2 | Complete |
+| FORE-04 | Phase 2 | Complete |
 | FORE-05 | Phase 2 | Pending |
-| FORE-06 | Phase 2 | Pending |
+| FORE-06 | Phase 2 | Complete |
 | FORE-07 | Phase 2 | Pending |
 | FORE-08 | Phase 2 | Pending |
 | API-01 | Phase 3 | Pending |

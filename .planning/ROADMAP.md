@@ -49,7 +49,7 @@ Plans:
   3. Weather (rain/fog), event days (games/concerts), and school calendar (SFUSD school days vs breaks) each visibly modify predictions compared to a plain baseline
   4. Short-term forecasts (0-2hr) use INRIX built-in Duration parameter; week-ahead uses the trained model with all modifiers
   5. Forecasts refresh automatically on a scheduled basis (every 6 hours minimum)
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
 - [ ] 02-01-PLAN.md -- Python ML scaffold, baseline forecast, feature engineering with modifiers, confidence intervals
@@ -121,7 +121,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Data Pipeline | 4/4 | Complete    | 2026-03-19 |
-| 2. Forecasting Model | 0/3 | Not started | - |
+| 2. Forecasting Model | 1/3 | In Progress|  |
 | 3. API Layer | 0/1 | Not started | - |
 | 4. Map and Live View | 0/2 | Not started | - |
 | 5. Departure Planner and Week-Ahead View | 0/2 | Not started | - |
