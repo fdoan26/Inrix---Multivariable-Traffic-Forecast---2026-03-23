@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 5 context gathered
-last_updated: "2026-03-20T07:43:52.170Z"
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-20T08:03:08.061Z"
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 11
-  completed_plans: 11
+  total_plans: 13
+  completed_plans: 12
 ---
 
 # Project State
@@ -19,11 +19,11 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Core value:** Give SF drivers a week-ahead departure planner with confidence intervals -- something Google/Apple cannot offer because they only react to real-time conditions.
-**Current focus:** Phase 04 — map-and-live-view
+**Current focus:** Phase 05 — departure-planner-and-week-ahead-view
 
 ## Current Position
 
-Phase: 04 (map-and-live-view) — COMPLETE
+Phase: 05 (departure-planner-and-week-ahead-view) — EXECUTING
 Plan: 2 of 2
 
 ## Performance Metrics
@@ -53,6 +53,7 @@ Plan: 2 of 2
 | Phase 03 P02 | 2min | 2 tasks | 2 files |
 | Phase 04 P01 | 8min | 2 tasks | 27 files |
 | Phase 04 P02 | 3min | 2 tasks | 10 files |
+| Phase 05 P01 | 3min | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,8 @@ Recent decisions affecting current work:
 - Plan 04-01: GeoJSON memoized with useMemo keyed on corridorQueries for render performance
 - [Phase 04]: Inline SVG icons for incident markers rather than Mapbox symbol layer for simpler React integration
 - [Phase 04]: Dark popup styling (bg-gray-800) to match dark-v11 map theme
+- [Phase 05]: Removed segment detail section from CorridorPanel, replaced with WeekHeatmap view
+- [Phase 05]: useCorridorForecast uses 30min staleTime and no refetchInterval (forecast data is slow-changing)
 
 ### Pending Todos
 
@@ -107,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T07:43:52.167Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-departure-planner-and-week-ahead-view/05-CONTEXT.md
+Last session: 2026-03-20T08:03:08.058Z
+Stopped at: Completed 05-01-PLAN.md
+Resume file: None
