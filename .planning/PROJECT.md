@@ -28,12 +28,18 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 - ✓ Departure-windows endpoint (API-03) with Zod validation, congestion risk, and reason derivation — Phase 3
 - ✓ In-memory TTL cache service (6-hour TTL aligned to forecast refresh) — Phase 3
 - ✓ CORS middleware + centralized error handler (Express 5 error propagation) — Phase 3
+- ✓ React 19 + Vite 8 + TypeScript frontend scaffold with Tailwind CSS v4 — Phase 4
+- ✓ Mapbox GL JS map of SF with 6 color-coded corridor polylines (green/amber/red by congestion) — Phase 4
+- ✓ TanStack Query live speed overlay with 5-minute auto-refresh — Phase 4
+- ✓ INRIX incidents layer — real-time crashes, construction, and congestion markers with popup details — Phase 4
+- ✓ Responsive floating panel (desktop sidebar / mobile bottom drawer) — Phase 4
+- ✓ GET /api/incidents backend endpoint (24h window, non-Cleared, limit 100) — Phase 4
 
 ### Active
 
-- [ ] Real-time SF segment speeds via INRIX API (geo-locked to SF bounding box)
-- [ ] "Best time to drive" planner — origin/destination + desired arrival → recommended departure window with congestion risk score across the week
-- [ ] INRIX incidents layer — real-time crashes, construction, and congestion alerts on map
+- [ ] Week-ahead corridor heatmap — 7-day × time-slot grid per corridor (MAP-04)
+- [ ] Confidence interval display alongside predicted travel times (MAP-05)
+- [ ] Departure planner UI — origin/destination + desired arrival → recommended windows (PLAN-01/02/03)
 - [ ] Actual vs predicted tracking — log real outcomes to validate and improve the model
 - [ ] TMC segment IDs needed — replace TMC_PLACEHOLDER in corridors.py with real IDs from `SELECT DISTINCT segment_id FROM speed_readings` once Phase 1 data accumulates
 
@@ -76,4 +82,4 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 | Manual Google Maps benchmarking | ToS risk + fragility of scraping outweighs comparison value in MVP | — Pending |
 
 ---
-*Last updated: 2026-03-19 after Phase 3: API Layer complete*
+*Last updated: 2026-03-19 after Phase 4: Map and Live View complete*
