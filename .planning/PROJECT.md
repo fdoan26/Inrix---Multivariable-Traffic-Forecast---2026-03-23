@@ -39,12 +39,16 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 - ✓ Departure planner form — corridor dropdown, arrival date+time, Zod validation — Phase 5
 - ✓ Ranked departure windows with congestion badges, best result highlighted, modifier reason text — Phase 5
 - ✓ Live/Plan tab navigation added to CorridorPanel — Phase 5
+- ✓ forecast_outcomes table with GENERATED ALWAYS computed error columns — Phase 6
+- ✓ Outcome logger CLI script comparing forecasts vs observed speed_readings (batch SQL, idempotent) — Phase 6
+- ✓ GET /api/accuracy endpoint — per-corridor MAE, MAPE, trend (improving/degrading/stable), day-of-week breakdown — Phase 6
+- ✓ AccuracyDashboard with expand/collapse day-of-week, graceful empty state, trend badges — Phase 6
+- ✓ Live/Plan/Accuracy three-tab CorridorPanel — Phase 6
 
 ### Active
 
-- [ ] Actual vs predicted tracking — log real outcomes to validate and improve the model (VAL-01)
-- [ ] Prediction accuracy metrics viewable (MAE, MAPE per corridor) (VAL-02)
 - [ ] TMC segment IDs needed — replace TMC_PLACEHOLDER in corridors.py with real IDs from `SELECT DISTINCT segment_id FROM speed_readings` once Phase 1 data accumulates
+- [ ] Run outcome logger after forecast data accumulates (7+ days) to start populating accuracy metrics
 
 ### Out of Scope
 
@@ -85,4 +89,4 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 | Manual Google Maps benchmarking | ToS risk + fragility of scraping outweighs comparison value in MVP | — Pending |
 
 ---
-*Last updated: 2026-03-20 after Phase 5: Departure Planner and Week-Ahead View complete*
+*Last updated: 2026-03-20 after Phase 6: Validation and Accuracy Tracking complete — all 6 phases done*
