@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-03-20T05:37:06.328Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-20T05:40:40.757Z"
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -48,6 +48,7 @@ Plan: 3 of 3
 *Updated after each plan completion*
 | Phase 02 P01 | 5min | 2 tasks | 17 files |
 | Phase 02 P03 | 3min | 2 tasks | 13 files |
+| Phase 02 P02 | 7min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,9 @@ Recent decisions affecting current work:
 - Plan 02-03: Express 5.1 with Router-per-resource pattern for API endpoints
 - Plan 02-03: supertest for HTTP-level integration tests with mocked DB query
 - Plan 02-03: server.ts as separate process from worker.ts (API vs data collection)
+- [Phase 02]: Two-tier dispatch: baseline when data < 2 weeks, XGBoost when model exists and data >= 2 weeks
+- [Phase 02]: Placeholder forecasts (20min default) when no historical data, preventing empty forecast tables
+- [Phase 02]: XGBoost modifier columns set to None (modifiers baked into ML features, not explicit multipliers)
 
 ### Pending Todos
 
@@ -87,6 +91,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T05:37:00Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-03-20T05:40:40.754Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
