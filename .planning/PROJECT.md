@@ -19,18 +19,20 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 - ✓ Open-Meteo 7-day weather forecasts fetched daily and stored — Phase 1
 - ✓ SFUSD school calendar ingested with date-level flags — Phase 1
 - ✓ Local event calendar ingested (Giants/Warriors/concerts) — Phase 1
+- ✓ Week-ahead congestion forecast pipeline (baseline + XGBoost) for all 6 SF corridors — Phase 2
+- ✓ Weather/event/school modifiers applied to baseline forecast — Phase 2
+- ✓ Confidence intervals (p10/p50/p90) via bootstrap method — Phase 2
+- ✓ Short-term (0–2hr) INRIX Duration forecast stored in speed_readings — Phase 2
+- ✓ 6-hour forecast refresh cycle (cron-ready CLI script) — Phase 2
+- ✓ REST API endpoints: current corridor speeds (API-01) and week-ahead forecasts (API-02) — Phase 2
 
 ### Active
 
 - [ ] Real-time SF segment speeds via INRIX API (geo-locked to SF bounding box)
-- [ ] Week-ahead congestion forecast per major SF corridor (101, 280, Bay Bridge approach, Van Ness, 19th Ave, Market St)
-- [ ] Weather integration via Open-Meteo — rain and fog forecasts layered onto traffic predictions
 - [ ] "Best time to drive" planner — origin/destination + desired arrival → recommended departure window with congestion risk score across the week
-- [ ] Confidence interval display — "32–44 min (most likely 36)" instead of a single number
 - [ ] INRIX incidents layer — real-time crashes, construction, and congestion alerts on map
-- [ ] Local event detection — Giants/Warriors games, concerts, Outside Lands flagged as high-congestion anomaly days
-- [ ] School calendar signal — SFUSD school days vs breaks shift morning rush
 - [ ] Actual vs predicted tracking — log real outcomes to validate and improve the model
+- [ ] TMC segment IDs needed — replace TMC_PLACEHOLDER in corridors.py with real IDs from `SELECT DISTINCT segment_id FROM speed_readings` once Phase 1 data accumulates
 
 ### Out of Scope
 
@@ -71,4 +73,4 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 | Manual Google Maps benchmarking | ToS risk + fragility of scraping outweighs comparison value in MVP | — Pending |
 
 ---
-*Last updated: 2026-03-19 after Phase 1: Data Pipeline complete*
+*Last updated: 2026-03-19 after Phase 2: Forecasting Model complete*
