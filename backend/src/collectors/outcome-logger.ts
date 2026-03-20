@@ -40,8 +40,7 @@ export async function logOutcomes(): Promise<{ processed: number; inserted: numb
 }
 
 // CLI entry point
-const isMain = import.meta.url === `file://${process.argv[1]}`;
-if (isMain) {
+if (require.main === module) {
   logOutcomes()
     .then(r => { console.log(`Outcome logger: inserted ${r.inserted} outcomes`); process.exit(0); })
     .catch(err => { console.error('Outcome logger failed:', err); process.exit(1); });
