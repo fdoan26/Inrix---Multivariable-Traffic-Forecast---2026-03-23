@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-20T06:22:12.522Z"
+status: executing
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-20T07:26:36Z"
 progress:
   total_phases: 6
   completed_phases: 3
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 11
+  completed_plans: 10
 ---
 
 # Project State
@@ -19,11 +19,11 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Core value:** Give SF drivers a week-ahead departure planner with confidence intervals -- something Google/Apple cannot offer because they only react to real-time conditions.
-**Current focus:** Phase 03 — api-layer
+**Current focus:** Phase 04 — map-and-live-view
 
 ## Current Position
 
-Phase: 03 (api-layer) — COMPLETE
+Phase: 04 (map-and-live-view) — EXECUTING
 Plan: 2 of 2
 
 ## Performance Metrics
@@ -51,6 +51,7 @@ Plan: 2 of 2
 | Phase 02 P02 | 7min | 2 tasks | 8 files |
 | Phase 03 P01 | 2min | 2 tasks | 6 files |
 | Phase 03 P02 | 2min | 2 tasks | 2 files |
+| Phase 04 P01 | 8min | 2 tasks | 27 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,10 @@ Recent decisions affecting current work:
 - [Phase 03]: p50/p10 ratio thresholds for congestion_risk: <=1.2 free_flow, <=1.5 moderate, >1.5 heavy
 - [Phase 03]: Cache key includes arrival hour for per-slot granularity
 - [Phase 03]: Modifier threshold >1.05 triggers reason text inclusion
+- Plan 04-01: Vitest globals: true required for @testing-library/jest-dom expect integration
+- Plan 04-01: Import from react-map-gl/mapbox (NOT bare react-map-gl) for Mapbox GL JS v3
+- Plan 04-01: Tailwind v4: @import tailwindcss in CSS, @tailwindcss/vite plugin, NO tailwind.config.js
+- Plan 04-01: GeoJSON memoized with useMemo keyed on corridorQueries for render performance
 
 ### Pending Todos
 
@@ -99,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T06:22:12.520Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-map-and-live-view/04-CONTEXT.md
+Last session: 2026-03-20T07:26:36Z
+Stopped at: Completed 04-01-PLAN.md
+Resume file: .planning/phases/04-map-and-live-view/04-01-SUMMARY.md
