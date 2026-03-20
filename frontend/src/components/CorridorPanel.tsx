@@ -8,6 +8,7 @@ import {
   CONGESTION_COLORS,
 } from '@/data/corridors';
 import { WeekHeatmap } from '@/components/WeekHeatmap';
+import { DeparturePlannerForm } from '@/components/DeparturePlannerForm';
 import type { CongestionLevel } from '@/types/api';
 
 type PanelTab = 'live' | 'plan';
@@ -141,9 +142,7 @@ export function CorridorPanel() {
           </div>
         </>
       ) : (
-        <div className="px-4 py-4 text-gray-400 text-sm" data-testid="plan-tab-content">
-          Departure planner coming soon
-        </div>
+        <DeparturePlannerForm />
       )}
     </div>
   );

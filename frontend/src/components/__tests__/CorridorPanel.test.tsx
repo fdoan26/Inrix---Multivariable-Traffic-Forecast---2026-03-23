@@ -68,6 +68,14 @@ vi.mock('@/components/WeekHeatmap', () => ({
   ),
 }));
 
+vi.mock('@/hooks/useDepartureWindows', () => ({
+  useDepartureWindows: () => ({ data: undefined, isPending: false, isError: false }),
+}));
+
+vi.mock('@/components/DepartureResults', () => ({
+  DepartureResults: () => <div data-testid="results-stub" />,
+}));
+
 function renderPanel() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -154,7 +162,14 @@ describe('CorridorPanel', () => {
     renderPanel();
     const planTab = screen.getByTestId('tab-plan');
     fireEvent.click(planTab);
-    expect(screen.getByTestId('plan-tab-content')).toBeInTheDocument();
+    expect(screen.getByTestId('departure-planner')).toBeInTheDocument();
+  });
+
+  it('Plan tab renders departure planner form with corridor dropdown', () => {
+    renderPanel();
+    fireEvent.click(screen.getByTestId('tab-plan'));
+    expect(screen.getByTestId('corridor-select')).toBeInTheDocument();
+    expect(screen.getByTestId('submit-btn')).toBeInTheDocument();
   });
 
   it('shows WeekHeatmap when corridor is selected in Live tab', () => {
