@@ -25,6 +25,9 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 - ✓ Short-term (0–2hr) INRIX Duration forecast stored in speed_readings — Phase 2
 - ✓ 6-hour forecast refresh cycle (cron-ready CLI script) — Phase 2
 - ✓ REST API endpoints: current corridor speeds (API-01) and week-ahead forecasts (API-02) — Phase 2
+- ✓ Departure-windows endpoint (API-03) with Zod validation, congestion risk, and reason derivation — Phase 3
+- ✓ In-memory TTL cache service (6-hour TTL aligned to forecast refresh) — Phase 3
+- ✓ CORS middleware + centralized error handler (Express 5 error propagation) — Phase 3
 
 ### Active
 
@@ -73,4 +76,4 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 | Manual Google Maps benchmarking | ToS risk + fragility of scraping outweighs comparison value in MVP | — Pending |
 
 ---
-*Last updated: 2026-03-19 after Phase 2: Forecasting Model complete*
+*Last updated: 2026-03-19 after Phase 3: API Layer complete*
