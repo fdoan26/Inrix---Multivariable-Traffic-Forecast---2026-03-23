@@ -2,8 +2,8 @@
 phase: 2
 slug: forecasting-model
 status: draft
-nyquist_compliant: false
-wave_0_complete: false
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-03-19
 ---
 
@@ -40,11 +40,12 @@ created: 2026-03-19
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 2-01-01 | 02-01 | 1 | FORE-01, FORE-06 | unit | `cd ml && python -m pytest tests/test_baseline.py -v` | ❌ W0 | ⬜ pending |
-| 2-01-02 | 02-01 | 1 | FORE-02, FORE-03, FORE-04 | unit | `cd ml && python -m pytest tests/test_features.py -v` | ❌ W0 | ⬜ pending |
-| 2-02-01 | 02-02 | 2 | FORE-05, FORE-07 | unit | `cd ml && python -m pytest tests/test_forecast_writer.py -v` | ❌ W0 | ⬜ pending |
-| 2-02-02 | 02-02 | 2 | FORE-08 | unit | `cd ml && python -m pytest tests/test_scheduler.py -v` | ❌ W0 | ⬜ pending |
-| 2-03-01 | 02-03 | 3 | FORE-01, FORE-06 | integration | `cd ml && python -m pytest tests/test_model.py -v` | ❌ W0 | ⬜ pending |
+| 2-01-01 | 02-01 | 1 | FORE-01, FORE-06 | unit | `cd ml && python -m pytest tests/test_baseline.py -v` | yes (W0) | ⬜ pending |
+| 2-01-02 | 02-01 | 1 | FORE-02, FORE-03, FORE-04 | unit | `cd ml && python -m pytest tests/test_features.py tests/test_confidence.py -v` | yes (W0) | ⬜ pending |
+| 2-02-01 | 02-02 | 2 | FORE-05 | unit | `cd ml && python -m pytest tests/test_forecast.py -v` | yes | ⬜ pending |
+| 2-02-02 | 02-02 | 2 | FORE-05, FORE-08 | unit | `cd ml && python -m pytest tests/test_model.py -v` | yes | ⬜ pending |
+| 2-03-01 | 02-03 | 2 | FORE-07 | unit | `cd backend && npx vitest run src/api/__tests__/ --reporter=verbose` | yes | ⬜ pending |
+| 2-03-02 | 02-03 | 2 | FORE-07 | unit | `cd backend && npx vitest run src/collectors/__tests__/inrix-speeds.test.ts --reporter=verbose` | yes | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -52,13 +53,13 @@ created: 2026-03-19
 
 ## Wave 0 Requirements
 
-- [ ] `ml/pyproject.toml` — Python project with xgboost, scikit-learn, pandas, psycopg2-binary, pytest deps
-- [ ] `ml/tests/__init__.py` — test package init
-- [ ] `ml/tests/test_baseline.py` — stubs for FORE-01, FORE-06 (baseline model + p10/p50/p90)
-- [ ] `ml/tests/test_features.py` — stubs for FORE-02, FORE-03, FORE-04 (weather/event/school modifiers)
-- [ ] `ml/tests/test_forecast_writer.py` — stubs for FORE-05, FORE-07 (forecast table writes, corridor coverage)
-- [ ] `ml/tests/test_scheduler.py` — stubs for FORE-08 (refresh cadence)
-- [ ] `ml/tests/test_model.py` — integration stubs for FORE-01, FORE-06 (full pipeline)
+- [x] `ml/pyproject.toml` — Python project with xgboost, scikit-learn, pandas, psycopg2-binary, pytest deps
+- [x] `ml/tests/__init__.py` — test package init
+- [x] `ml/tests/test_baseline.py` — tests for FORE-01, FORE-06 (baseline model + p10/p50/p90)
+- [x] `ml/tests/test_features.py` — tests for FORE-02, FORE-03, FORE-04 (weather/event/school modifiers)
+- [x] `ml/tests/test_confidence.py` — tests for FORE-06 (bootstrap CI)
+- [x] `ml/tests/test_forecast.py` — tests for FORE-05 (forecast orchestrator, write_forecasts)
+- [x] `ml/tests/test_model.py` — tests for FORE-05 (XGBoost train/predict/evaluate)
 
 ---
 
@@ -69,17 +70,17 @@ created: 2026-03-19
 | Forecasts written to forecasts hypertable for all 6 corridors | FORE-05 | Requires live TimescaleDB | Run forecast script, query `SELECT DISTINCT corridor_id FROM forecasts` — should return 6 rows |
 | Short-term 0-2hr INRIX Duration forecast stored | FORE-07 | Requires live INRIX credentials | Check speed_readings.duration_minutes is non-null for recent rows |
 | Weather modifier visibly affects predictions (rainy vs clear day) | FORE-02 | Requires data with weather variation | Compare p50 for same corridor/hour on rainy vs clear day — rainy should be higher |
-| 6-hour refresh cycle runs automatically | FORE-08 | Requires cron execution | Check job_log has forecast_refresh entries ≥4 per day after cron is active |
+| 6-hour refresh cycle runs automatically | FORE-08 | Requires cron execution | Check job_log has forecast_refresh entries >=4 per day after cron is active |
 
 ---
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 45s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
+- [x] No watch-mode flags
+- [x] Feedback latency < 45s
+- [x] `nyquist_compliant: true` set in frontmatter
 
 **Approval:** pending
