@@ -80,11 +80,11 @@ Plans:
   2. Live segment speeds are color-coded on the map by congestion level (green/yellow/red) and update automatically
   3. INRIX incidents (crashes, construction, congestion alerts) are displayed as markers on the map with detail popups
   4. Map is mobile-responsive -- usable on phone screens without horizontal scrolling or broken layout
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md -- Frontend scaffold (React/Vite/Tailwind v4), Mapbox map with corridor lines, speed overlay, responsive panel (MAP-01, MAP-02)
+- [ ] 04-02-PLAN.md -- Backend incidents endpoint, frontend incident markers with popups and layer toggle (MAP-03)
 
 ### Phase 5: Departure Planner and Week-Ahead View
 **Goal**: Users can plan their week's driving with a corridor heatmap and a departure time recommender that explains why certain times are slow
