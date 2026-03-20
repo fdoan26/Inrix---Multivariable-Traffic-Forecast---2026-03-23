@@ -49,8 +49,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### API Layer
 
-- [ ] **API-01**: REST API endpoint serving current corridor speeds
-- [ ] **API-02**: REST API endpoint serving week-ahead forecast for a given corridor
+- [x] **API-01**: REST API endpoint serving current corridor speeds
+- [x] **API-02**: REST API endpoint serving week-ahead forecast for a given corridor
 - [ ] **API-03**: REST API endpoint serving best departure windows for origin/destination pair
 
 ## v2 Requirements
