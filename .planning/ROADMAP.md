@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 3: API Layer** - REST endpoints serving live speeds, forecasts, and incidents
 - [x] **Phase 4: Map and Live View** - Interactive Mapbox map with live traffic overlay and incidents (completed 2026-03-20)
 - [ ] **Phase 5: Departure Planner and Week-Ahead View** - Best departure time recommender and corridor heatmap visualization
-- [ ] **Phase 6: Validation and Accuracy Tracking** - Actual vs predicted logging with accuracy metrics dashboard
+- [x] **Phase 6: Validation and Accuracy Tracking** - Actual vs predicted logging with accuracy metrics dashboard (completed 2026-03-20)
 
 ## Phase Details
 
@@ -109,7 +109,7 @@ Plans:
   1. Actual travel times are logged against predicted values for each forecast window automatically
   2. Prediction accuracy metrics (MAE, MAPE per corridor) are viewable in a dashboard or summary page
   3. Accuracy data covers enough history to show whether the model is improving or degrading over time
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 06-01-PLAN.md -- DB migration, outcome logger, accuracy API, AccuracyDashboard component (VAL-01, VAL-02)
@@ -126,4 +126,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. API Layer | 0/2 | Not started | - |
 | 4. Map and Live View | 2/2 | Complete   | 2026-03-20 |
 | 5. Departure Planner and Week-Ahead View | 2/2 | Complete   | 2026-03-20 |
-| 6. Validation and Accuracy Tracking | 0/1 | Not started | - |
+| 6. Validation and Accuracy Tracking | 1/1 | Complete   | 2026-03-20 |

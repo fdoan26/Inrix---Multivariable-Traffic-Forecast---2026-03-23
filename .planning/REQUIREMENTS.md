@@ -44,8 +44,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Validation
 
-- [ ] **VAL-01**: Actual travel times logged against predicted values for each forecast
-- [ ] **VAL-02**: Prediction accuracy metrics viewable (MAE, MAPE per corridor)
+- [x] **VAL-01**: Actual travel times logged against predicted values for each forecast
+- [x] **VAL-02**: Prediction accuracy metrics viewable (MAE, MAPE per corridor)
 
 ### API Layer
 
@@ -114,8 +114,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PLAN-01 | Phase 5 | Complete |
 | PLAN-02 | Phase 5 | Complete |
 | PLAN-03 | Phase 5 | Complete |
-| VAL-01 | Phase 6 | Pending |
-| VAL-02 | Phase 6 | Pending |
+| VAL-01 | Phase 6 | Complete |
+| VAL-02 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 27 total
