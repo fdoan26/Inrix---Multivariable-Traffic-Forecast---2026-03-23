@@ -34,13 +34,16 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 - ✓ INRIX incidents layer — real-time crashes, construction, and congestion markers with popup details — Phase 4
 - ✓ Responsive floating panel (desktop sidebar / mobile bottom drawer) — Phase 4
 - ✓ GET /api/incidents backend endpoint (24h window, non-Cleared, limit 100) — Phase 4
+- ✓ Week-ahead corridor heatmap — 7-day × 17-hour grid (6am–10pm) color-coded by predicted congestion — Phase 5
+- ✓ Confidence intervals displayed as tooltip (heatmap) and inline range "X min (Y–Z)" (departure results) — Phase 5
+- ✓ Departure planner form — corridor dropdown, arrival date+time, Zod validation — Phase 5
+- ✓ Ranked departure windows with congestion badges, best result highlighted, modifier reason text — Phase 5
+- ✓ Live/Plan tab navigation added to CorridorPanel — Phase 5
 
 ### Active
 
-- [ ] Week-ahead corridor heatmap — 7-day × time-slot grid per corridor (MAP-04)
-- [ ] Confidence interval display alongside predicted travel times (MAP-05)
-- [ ] Departure planner UI — origin/destination + desired arrival → recommended windows (PLAN-01/02/03)
-- [ ] Actual vs predicted tracking — log real outcomes to validate and improve the model
+- [ ] Actual vs predicted tracking — log real outcomes to validate and improve the model (VAL-01)
+- [ ] Prediction accuracy metrics viewable (MAE, MAPE per corridor) (VAL-02)
 - [ ] TMC segment IDs needed — replace TMC_PLACEHOLDER in corridors.py with real IDs from `SELECT DISTINCT segment_id FROM speed_readings` once Phase 1 data accumulates
 
 ### Out of Scope
@@ -82,4 +85,4 @@ Give SF drivers a genuinely useful week-ahead departure planner with confidence 
 | Manual Google Maps benchmarking | ToS risk + fragility of scraping outweighs comparison value in MVP | — Pending |
 
 ---
-*Last updated: 2026-03-19 after Phase 4: Map and Live View complete*
+*Last updated: 2026-03-20 after Phase 5: Departure Planner and Week-Ahead View complete*
