@@ -103,8 +103,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORE-06 | Phase 2 | Complete |
 | FORE-07 | Phase 2 | Complete |
 | FORE-08 | Phase 2 | Complete |
-| API-01 | Phase 3 | Pending |
-| API-02 | Phase 3 | Pending |
+| API-01 | Phase 3 | Complete |
+| API-02 | Phase 3 | Complete |
 | API-03 | Phase 3 | Pending |
 | MAP-01 | Phase 4 | Pending |
 | MAP-02 | Phase 4 | Pending |
