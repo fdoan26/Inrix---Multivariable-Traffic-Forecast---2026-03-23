@@ -38,9 +38,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Departure Planner
 
-- [ ] **PLAN-01**: User inputs origin, destination, and desired arrival time
-- [ ] **PLAN-02**: System returns recommended departure windows across the week with congestion risk score
-- [ ] **PLAN-03**: Best departure time highlighted with "Slow due to [reason]" explanations where modifiers apply
+- [x] **PLAN-01**: User inputs origin, destination, and desired arrival time
+- [x] **PLAN-02**: System returns recommended departure windows across the week with congestion risk score
+- [x] **PLAN-03**: Best departure time highlighted with "Slow due to [reason]" explanations where modifiers apply
 
 ### Validation
 
@@ -111,9 +111,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MAP-03 | Phase 4 | Complete |
 | MAP-04 | Phase 5 | Complete |
 | MAP-05 | Phase 5 | Complete |
-| PLAN-01 | Phase 5 | Pending |
-| PLAN-02 | Phase 5 | Pending |
-| PLAN-03 | Phase 5 | Pending |
+| PLAN-01 | Phase 5 | Complete |
+| PLAN-02 | Phase 5 | Complete |
+| PLAN-03 | Phase 5 | Complete |
 | VAL-01 | Phase 6 | Pending |
 | VAL-02 | Phase 6 | Pending |
 
