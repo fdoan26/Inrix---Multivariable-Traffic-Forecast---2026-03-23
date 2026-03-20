@@ -51,7 +51,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **API-01**: REST API endpoint serving current corridor speeds
 - [x] **API-02**: REST API endpoint serving week-ahead forecast for a given corridor
-- [ ] **API-03**: REST API endpoint serving best departure windows for origin/destination pair
+- [x] **API-03**: REST API endpoint serving best departure windows for origin/destination pair
 
 ## v2 Requirements
 
@@ -105,7 +105,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORE-08 | Phase 2 | Complete |
 | API-01 | Phase 3 | Complete |
 | API-02 | Phase 3 | Complete |
-| API-03 | Phase 3 | Pending |
+| API-03 | Phase 3 | Complete |
 | MAP-01 | Phase 4 | Pending |
 | MAP-02 | Phase 4 | Pending |
 | MAP-03 | Phase 4 | Pending |

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-20T06:05:26.380Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-20T06:09:16.854Z"
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 9
-  completed_plans: 8
+  completed_plans: 9
 ---
 
 # Project State
@@ -23,7 +23,7 @@ See: .planning/PROJECT.md (updated 2026-03-19)
 
 ## Current Position
 
-Phase: 03 (api-layer) — EXECUTING
+Phase: 03 (api-layer) — COMPLETE
 Plan: 2 of 2
 
 ## Performance Metrics
@@ -50,6 +50,7 @@ Plan: 2 of 2
 | Phase 02 P03 | 3min | 2 tasks | 13 files |
 | Phase 02 P02 | 7min | 2 tasks | 8 files |
 | Phase 03 P01 | 2min | 2 tasks | 6 files |
+| Phase 03 P02 | 2min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,9 @@ Recent decisions affecting current work:
 - [Phase 03]: CORS before JSON body parser to handle preflight correctly
 - [Phase 03]: Lazy eviction for cache (delete on access, not background sweep)
 - [Phase 03]: Express 5 async error propagation eliminates need for try/catch in route handlers
+- [Phase 03]: p50/p10 ratio thresholds for congestion_risk: <=1.2 free_flow, <=1.5 moderate, >1.5 heavy
+- [Phase 03]: Cache key includes arrival hour for per-slot granularity
+- [Phase 03]: Modifier threshold >1.05 triggers reason text inclusion
 
 ### Pending Todos
 
@@ -95,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T06:05:26.377Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-03-20T06:09:16.851Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
