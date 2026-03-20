@@ -94,6 +94,7 @@ describe('collectSpeeds', () => {
           box: '37.858|-122.541,37.699|-122.341',
           SpeedOutputFields: 'All',
           units: 0,
+          Duration: 120,
         }),
         headers: expect.objectContaining({
           Authorization: 'Bearer test-token',
@@ -185,6 +186,50 @@ describe('collectSpeeds', () => {
       'success',
       200,
       expect.any(Number)
+    );
+  });
+
+  it('includes Duration=120 in INRIX request params for short-term forecasts', async () => {
+    mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
+    mockedAxiosGet.mockResolvedValue({ data: VALID_SPEED_RESPONSE });
+
+    await collectSpeeds(mockAuth);
+
+    const callArgs = mockedAxiosGet.mock.calls[0][1];
+    expect(callArgs?.params).toHaveProperty('Duration', 120);
+  });
+
+  it('passes durationMinutes from response to insertSpeedReadings', async () => {
+    mockedCheckBudget.mockResolvedValue({ allowed: true, count: 100 });
+    const responseWithDuration = {
+      result: {
+        segmentSpeed: [
+          {
+            segments: [
+              {
+                code: 'SF101',
+                segmentId: 'seg-001',
+                speed: 45,
+                reference: 65,
+                average: 50,
+                speedBucket: 1,
+                travelTimeMinutes: 2.5,
+                durationMinutes: 3.2,
+              },
+            ],
+          },
+        ],
+      },
+    };
+    mockedAxiosGet.mockResolvedValue({ data: responseWithDuration });
+
+    await collectSpeeds(mockAuth);
+
+    expect(mockedInsertSpeedReadings).toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.objectContaining({ segmentId: 'seg-001', durationMinutes: 3.2 }),
+      ]),
+      expect.any(Date)
     );
   });
 });

@@ -33,6 +33,7 @@ export async function collectSpeeds(
               box: SF_BOX,
               SpeedOutputFields: 'All',
               units: 0,
+              Duration: 120,
             },
             headers: {
               Authorization: `Bearer ${token}`,

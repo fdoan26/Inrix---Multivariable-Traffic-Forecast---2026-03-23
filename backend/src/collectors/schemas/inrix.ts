@@ -8,6 +8,7 @@ export const SpeedSegmentSchema = z.object({
   average: z.number(),
   speedBucket: z.number().int().min(0).max(3),
   travelTimeMinutes: z.number(),
+  durationMinutes: z.number().optional(),
 });
 
 export const SpeedResponseSchema = z.object({
