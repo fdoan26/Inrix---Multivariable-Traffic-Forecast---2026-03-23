@@ -49,12 +49,12 @@ Plans:
   3. Weather (rain/fog), event days (games/concerts), and school calendar (SFUSD school days vs breaks) each visibly modify predictions compared to a plain baseline
   4. Short-term forecasts (0-2hr) use INRIX built-in Duration parameter; week-ahead uses the trained model with all modifiers
   5. Forecasts refresh automatically on a scheduled basis (every 6 hours minimum)
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md -- Python ML scaffold, baseline forecast, feature engineering with modifiers, confidence intervals
+- [ ] 02-02-PLAN.md -- Forecast orchestrator, XGBoost model, CLI scripts for refresh and training
+- [ ] 02-03-PLAN.md -- Node.js API endpoints (current speeds, week-ahead forecast) and INRIX Duration parameter
 
 ### Phase 3: API Layer
 **Goal**: Pre-computed forecasts and live data are accessible through a REST API with sub-200ms response times
