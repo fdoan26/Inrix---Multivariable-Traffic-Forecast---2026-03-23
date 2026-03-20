@@ -65,10 +65,11 @@ Plans:
   2. GET endpoint returns week-ahead forecast (with confidence intervals) for a given corridor, day, and hour
   3. GET endpoint accepts origin/destination pair and desired arrival time, returning recommended departure windows with congestion risk scores
   4. All endpoints respond in under 200ms by serving pre-computed data from the database (no ML inference in the request path)
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md -- Cache service, CORS middleware, centralized error handler (API-01/API-02 hardening)
+- [ ] 03-02-PLAN.md -- Departure-windows endpoint with Zod validation, cache integration, and reason/risk derivation (API-03)
 
 ### Phase 4: Map and Live View
 **Goal**: Users see an interactive map of SF with real-time traffic conditions and incidents, building trust before they rely on forecasts
@@ -122,7 +123,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Data Pipeline | 4/4 | Complete    | 2026-03-19 |
 | 2. Forecasting Model | 1/3 | In Progress|  |
-| 3. API Layer | 0/1 | Not started | - |
+| 3. API Layer | 0/2 | Not started | - |
 | 4. Map and Live View | 0/2 | Not started | - |
 | 5. Departure Planner and Week-Ahead View | 0/2 | Not started | - |
 | 6. Validation and Accuracy Tracking | 0/1 | Not started | - |
