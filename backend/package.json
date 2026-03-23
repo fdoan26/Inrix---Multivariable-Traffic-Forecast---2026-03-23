@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx src/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "migrate": "node-pg-migrate",
