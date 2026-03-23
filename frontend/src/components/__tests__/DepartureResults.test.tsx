@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { DepartureResults } from '@/components/DepartureResults';
-import { CONGESTION_COLORS } from '@/data/corridors';
 import type { DepartureWindow } from '@/types/api';
 
 const mockWindows: DepartureWindow[] = [
