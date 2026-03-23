@@ -1,4 +1,4 @@
--- Migration 003: Create forecasts hypertable
+-- Migration 003: Create forecasts table (plain Postgres)
 
 CREATE TABLE forecasts (
   corridor_id      TEXT        NOT NULL,
@@ -14,17 +14,5 @@ CREATE TABLE forecasts (
   created_at       TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-SELECT create_hypertable('forecasts', 'forecast_for',
-  chunk_time_interval => INTERVAL '7 days'
-);
-
 CREATE INDEX idx_forecasts_corridor_time
   ON forecasts (corridor_id, forecast_for DESC);
-
-ALTER TABLE forecasts SET (
-  timescaledb.compress,
-  timescaledb.compress_segmentby = 'corridor_id',
-  timescaledb.compress_orderby = 'forecast_for DESC'
-);
-
-SELECT add_compression_policy('forecasts', INTERVAL '30 days');
