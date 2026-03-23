@@ -9,7 +9,7 @@
     "dev": "tsx src/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "migrate": "node-pg-migrate",
+    "migrate": "node-pg-migrate --migrations-dir src/db/migrations",
     "seed:calendar": "tsx src/seed/school-calendar.ts",
     "seed:events": "tsx src/seed/events.ts",
     "worker": "tsx src/worker.ts",
